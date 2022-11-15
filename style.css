@@ -1,0 +1,25 @@
+body {
+    align-items: center;
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    flex: 0 1 auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 960px;
+}
+
+.box {
+    background-color: white;
+    border: 2px solid gray;
+    box-sizing: border-box;
+    flex: 0 1 6.25%; /* 1/16 */
+    /*height: 60px;*/ /* 960/16 */
+    /*width: 60px;*/
+    aspect-ratio: 1/1;
+}
