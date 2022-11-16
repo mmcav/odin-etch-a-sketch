@@ -1,27 +1,38 @@
 body {
     align-items: center;
-    background-color: rgb(128, 128, 128);
+    background-color: lightcoral;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
+button {
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 8px;
+    margin: 0 16px;
+    margin-bottom: 8px;
+    padding: 8px 16px;
+}
+
+button:active {
+    background-color: lightgray;
+    border: 2px solid gray;
+}
+
 .container {
+    box-sizing: border-box;
     display: flex;
     flex: 0 1 auto;
     flex-wrap: wrap;
     justify-content: center;
-    width: 960px;
+    width: 90vmin;
 }
 
 .box {
-    background-color: rgb(255, 255, 255);
-    border: 2px solid rgb(128, 128, 128);
+    border: 2px solid gray;
     box-sizing: border-box;
     flex-grow: 0;
     flex-shrink: 1;
-    /*flex: 0 1 6.25%;*/ /* 1/16 */
-    /*height: 60px;*/ /* 960/16 */
-    /*width: 60px;*/
     aspect-ratio: 1/1;
 }
