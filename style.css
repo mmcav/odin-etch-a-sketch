@@ -6,6 +6,17 @@ body {
     justify-content: center;
 }
 
+.menu {
+    align-items: baseline;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+label, button {
+    font-family: 'Courier New', Courier, monospace;
+}
+
 button {
     background-color: white;
     border: 2px solid black;

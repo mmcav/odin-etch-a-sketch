@@ -8,9 +8,15 @@
     <title>Etch-a-Sketch</title>
 </head>
 <body>
-    <div>
-        <button id="reset">Reset</button>
-        <button id="changegrid">Change Grid</button>
+    <div class="menu">
+        <div class="menu-radio">
+            <label><input type="radio" name="brush-type" value="normal" checked autocomplete>Normal Mode</label>
+            <label><input type="radio" name="brush-type" value="extra">Extra Mode</label>
+        </div>
+        <div class="menu-buttons">
+            <button id="reset">Reset</button>
+            <button id="changegrid">Change Grid</button>
+        </div>
     </div>
     <div class="container"></div>
 
