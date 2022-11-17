@@ -14,27 +14,32 @@ function makeGrid(size = 16) {
     const boxes = document.querySelectorAll('.box');
     boxes.forEach((box) => {
         box.addEventListener('mouseover', () => {
-            const brushColor = document.querySelector('input[name=brush-type]:checked');
-            if (brushColor.value === 'normal') {
-                box.style.backgroundColor = 'rgb(0, 0, 0)';
-            } else if (brushColor.value === 'extra') {
-                let boxColors = box.style.backgroundColor.slice(4).split(', ').map((x) => parseInt(x));
-                if (boxColors[0] !== 0 || boxColors[1] !== 0 || boxColors[2] !== 0) {
-                    if (boxColors[0] === 255 && boxColors[1] === 255 && boxColors[2] === 255) {
-                        boxColors = boxColors.map((x) => Math.floor(Math.random() * 256));
-                    } else {
-                        boxColors = boxColors.map((x) => x - 26);
+            if (start) {
+                const brushColor = document.querySelector('input[name=brush-type]:checked');
+                if (brushColor.value === 'normal') {
+                    box.style.backgroundColor = 'rgb(0, 0, 0)';
+                } else if (brushColor.value === 'extra') {
+                    let boxColors = box.style.backgroundColor.slice(4).split(', ').map((x) => parseInt(x));
+                    if (boxColors[0] !== 0 || boxColors[1] !== 0 || boxColors[2] !== 0) {
+                        if (boxColors[0] === 255 && boxColors[1] === 255 && boxColors[2] === 255) {
+                            boxColors = boxColors.map((x) => Math.floor(Math.random() * 256));
+                        } else {
+                            boxColors = boxColors.map((x) => x - 26);
+                        }
+                        if (boxColors[0] < 0) boxColors[0] = 0;
+                        if (boxColors[1] < 0) boxColors[1] = 0;
+                        if (boxColors[2] < 0) boxColors[2] = 0;
+                        box.style.backgroundColor = `rgb(${boxColors.join(', ')})`;
                     }
-                    if (boxColors[0] < 0) boxColors[0] = 0;
-                    if (boxColors[1] < 0) boxColors[1] = 0;
-                    if (boxColors[2] < 0) boxColors[2] = 0;
-                    box.style.backgroundColor = `rgb(${boxColors.join(', ')})`;
                 }
             }
         });
     });
 }
 
+let start = false;
+document.addEventListener("mousedown", () => start = true);
+document.addEventListener("mouseup", () => start = false);
 makeGrid();
 
 const resetButton = document.querySelector('button#reset');
